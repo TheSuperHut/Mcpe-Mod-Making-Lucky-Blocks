@@ -4,10 +4,22 @@ Learn how to add certian functions!!!
 
 Your imagination is the limit on lucky blocks, there are also way more functions to add!
 
+//This is how you would make a entity riding another entity//
 nameofchoice=Level.spawnMob (x, y+1, z, 19, "mob/mobofchoice.png");
 othernameofchoice=Level.spawnMob (x, y+1, z, 84, "mob/mobofchoice.png");
 Entity.rideAnimal(nameofchoice, bat);
 clientMessage("Insert client message here")
+
+//dealing damage
+function attackHook(attacker,victim)
+{
+if (getCarriedItem()==600) 
+{
+Entity.setHealth(victim,5);
+}
+
+// How to add an item
+ModPE.setItem(id,texture,textureData,name,stackLimit);
 
 //This is how you would make a spawn egg//
 ModPE.setItem(795, "your_mob", 0, "Name Here :(");
@@ -58,6 +70,3 @@ explode(x,y,z,6)
 
 //Mob Effects//
 Entity.addEffect(getPlayerEnt(), MobEffect.healthBoost, 240*20, 0, false, true);
-
-
-
