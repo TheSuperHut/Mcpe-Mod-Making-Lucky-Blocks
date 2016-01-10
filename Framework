@@ -2,15 +2,44 @@ Now this will be the "Frame" or the "Body" of the mod!
 
 Of course you may add more or less drops to the new mod as you like! 😀
 
-var Diz=false
-var tick=0
+var bigblueid = 1278
+var key = 1279
+var cumbersomecutter = 1280
+var deathsetbottomid = 1281
+var deathsetpantsid = 1282
+var deathsetmiddleid = 1283
+var deathsettopid = 1284
+var gingerbreadid = 1825
+var spiralswordid = 1826
+var spiralbowid = 1827
+var flamebootsid = 1828
+var spiralluckyid = 255
 
-Block.defineBlock(255,"Spiral Lucky Block",[["command_block", 0],["command_block", 0],["command_block", 0],["command_block", 0],["command_block", 0],["command_block", 0]]);Block.setShape(255, 0, 0, 0, 1, 4/4, 1); Block.setDestroyTime(255,.5);
-Block.setExplosionResistance(255,80);
+ModPE.setItem(bigblueid,"spiral.big_blue_blade", 0,"Big Blue Blade",1);
+Item.setHandEquipped(bigblueid,true);
+ModPE.setItem(key,"spiral.azkor_key", 0,"Azkor's Key",1);
+Item.setHandEquipped(key,false);
+ModPE.setItem(cumbersomecutter,"spiral.cumbersome_crimson_cutter", 0,"Cumbersome Cutter",1);
+Item.setHandEquipped(cumbersomecutter,true);
+ModPE.setItem(gingerbreadid,"spiral.gingerbread", 0,"GingerBread",64);
+Item.setHandEquipped(gingerbreadid,false);
+ModPE.setItem(spiralswordid,"spiral.spiral_sword", 0,"Spiral Sword",1);
+Item.setHandEquipped(spiralswordid,true);
+ModPE.setItem(spiralbowid,"spiral.spiral_triple_bow", 0,"Triple Spiral Bow(W.I.P.)",1);
+Item.setHandEquipped(spiralbowid,true);
+
+Item.defineArmor(deathsetbottomid, "spiral.death_boots", 0, "Death Boots","spiral.death_layer_2.png", 3, 700, ArmorType.boots);
+Item.defineArmor(deathsetpantsid, "spiral.death_leggings", 0, "Death Pants","spiral.death_layer_2.png", 5, 700, ArmorType.leggings);
+Item.defineArmor(deathsetmiddleid, "spiral.death_chestplate", 0, "Death Plate","spiral.death_layer_1.png", 6, 700, ArmorType.chestplate);
+Item.defineArmor(deathsettopid, "spiral.death_helmet", 0, "Death Helmet","spiral.death_layer_1.png", 4, 700, ArmorType.helmet);
+Item.defineArmor(flamebootsid, "spiral.flame_boots", 0, "Flame Boots","spiral.flame_boots.png", 3, 700, ArmorType.boots);
+
+Block.defineBlock(spiralluckyid,"Spiral Lucky Block",[["spiral.spiral_lucky_block", 0],["spiral.spiral_lucky_block", 0],["spiral.spiral_lucky_block", 0],["spiral.spiral_lucky_block", 0],["spiral.spiral_lucky_block", 0],["spiral.spiral_lucky_block", 0]]);Block.setShape(spiralluckyid, 0, 0, 0, 1, 4/4, 1); Block.setDestroyTime(spiralluckyid,.5);
+Block.setExplosionResistance(spiralluckyid,80);
 
 function destroyBlock(x, y, z, side)
 {
-if (getTile(x,y,z) == 255)
+if (getTile(x,y,z) == spiralluckyid)
 {
 var random = Math.floor(Math.random()*49);
 {
@@ -209,55 +238,5 @@ if(random==49)
 {
 setTile(x,y,z,0)
 }
-}
-}
-
-
-function modTick()
-{
-if(Diz)
-{
-tick++;
-}
-if(tick==1)
-{
-ModPE.setFov(50)
-}
-if(tick==3)
-{
-ModPE.setFov(60)
-}
-if(tick==5)
-{
-ModPE.setFov(50)
-}
-if(tick==7)
-{
-ModPE.setFov(60)
-}
-if(tick==9)
-{
-ModPE.setFov(50)
-}
-if(tick==11)
-{
-ModPE.setFov(60)
-}
-if(tick==13)
-{
-ModPE.setFov(50)
-}
-if(tick==15)
-{
-ModPE.setFov(60)
-}
-if(tick==17)
-{
-ModPE.setFov(50)
-}
-if(tick==19)
-{
-ModPE.setFov(70)
-Diz=false
 }
 }
